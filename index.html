@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ongole Vari Shakahari Bojanam – Pure Veg Meals</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Tiro+Telugu&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+:root {
+  --primary-green: #2e7d32;
+  --light-green: #e8f5e9;
+  --accent-green: #4CAF82;
+  --cream: #f7f5ee;
+  --green-chip: #28a745;
+  --dark: #0b331e;
+  --white: #ffffff;
+  --beige: #d1b46a;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background: var(--cream);
+  overflow-x: hidden;
+}
+
+/* ═══ NAV ═══ */
+nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 999;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1rem 5%;
+  background: rgba(255,248,237,0.88);
+  backdrop-filter: blur(16px);
+  border-bottom: 2px solid rgba(46,125,50,0.18);
+}
+.nav-brand {
+  font-size: 1rem; font-weight: 900;
+  color: var(--dark);
+  display: flex; align-items: center; gap: 0.5rem;
+}
+.nav-brand span { color: var(--primary-green); }
+nav ul { display: flex; gap: 1.8rem; list-style: none; }
+nav ul a {
+  text-decoration: none;
+  font-size: 0.82rem; font-weight: 800;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--dark); transition: color 0.2s;
+}
+nav ul a:hover { color: var(--primary-green); }
+.nav-call {
+  background: var(--dark); color: white;
+  padding: 0.55rem 1.3rem; border-radius: 50px;
+  font-size: 0.82rem; font-weight: 800;
+  text-decoration: none; transition: background 0.2s;
+  letter-spacing: 0.05em;
+}
+.nav-call:hover { background: var(--primary-green); }
+
+/* ═══ GOOGLE TRANSLATE CUSTOMIZATION ═══ */
+.goog-te-gadget { display: flex; align-items: center; color: transparent !important; margin-top: 5px; }
+.goog-te-gadget .goog-te-combo {
+  padding: 0.4rem 0.5rem; border-radius: 8px;
+  border: 2px solid rgba(46,125,50,0.3);
+  font-family: 'Nunito', sans-serif; font-size: 0.85rem; font-weight: 800;
+  color: var(--dark) !important; background: white; cursor: pointer;
+}
+.goog-te-gadget .goog-te-combo:focus { outline: none; border-color: var(--primary-green); }
+.goog-logo-link { display: none !important; }
+.goog-te-banner-frame.skiptranslate { display: none !important; }
+body { top: 0px !important; }
+
+
+/* ═══ 3D LOGO ═══ */
+.logo-3d-scene {
+  perspective: 1000px;
+  margin: 0 auto 1.5rem;
+  width: 140px;
+  height: 140px;
+  opacity: 0;
+  animation: wordPop 0.8s cubic-bezier(0.34,1.56,0.64,1) 0.5s both;
+}
+.logo-3d-object {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+/* ═══ HERO ═══ */
+.hero {
+  min-height: 100vh;
+  padding: 7rem 5% 4rem;
+  background: linear-gradient(135deg, var(--dark) 0%, var(--primary-green) 100%);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.12);
+  border: 2px solid rgba(255,255,255,0.15);
+}
+.blob-1 { width: 320px; height: 320px; top: -80px; left: -80px; border-radius: 40% 60% 70% 30% / 50% 40% 60% 50%; animation: blobMove 8s ease-in-out infinite; }
+.blob-2 { width: 220px; height: 280px; top: 10%; right: -60px; border-radius: 60% 40% 30% 70% / 40% 60% 40% 60%; animation: blobMove 10s ease-in-out infinite reverse; }
+.blob-3 { width: 180px; height: 180px; bottom: 15%; left: 5%; border-radius: 50%; background: rgba(255,255,255,0.08); animation: blobMove 7s ease-in-out infinite 2s; }
+.blob-4 { width: 260px; height: 200px; bottom: -60px; right: 10%; border-radius: 30% 70% 60% 40% / 60% 40% 60% 40%; animation: blobMove 9s ease-in-out infinite 1s; }
+
+.pill {
+  position: absolute;
+  background: rgba(255,255,255,0.18);
+  border: 2px solid rgba(255,255,255,0.2);
+  border-radius: 100px;
+}
+.pill-1 { width: 60px; height: 200px; top: 20%; left: 8%; transform: rotate(-30deg); animation: floatUp 6s ease-in-out infinite; }
+.pill-2 { width: 50px; height: 160px; bottom: 20%; right: 12%; transform: rotate(20deg); animation: floatUp 7s ease-in-out infinite 1.5s; }
+.pill-3 { width: 40px; height: 120px; top: 60%; left: 15%; transform: rotate(45deg); animation: floatUp 8s ease-in-out infinite 3s; }
+
+@keyframes blobMove {
+  0%,100% { transform: scale(1) translate(0,0); }
+  33% { transform: scale(1.05) translate(10px,-10px); }
+  66% { transform: scale(0.96) translate(-8px,8px); }
+}
+@keyframes floatUp {
+  0%,100% { transform: rotate(-30deg) translateY(0); }
+  50% { transform: rotate(-30deg) translateY(-20px); }
+}
+
+.hero-content {
+  position: relative; z-index: 2;
+  text-align: center;
+  max-width: 900px;
+}
+
+.hero-tagline {
+  font-size: 0.78rem; font-weight: 900;
+  letter-spacing: 0.25em; text-transform: uppercase;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: wordPop 0.5s cubic-bezier(0.34,1.56,0.64,1) 0.2s both;
+}
+
+.hero-big {
+  font-size: clamp(3.5rem, 10vw, 8rem);
+  font-weight: 900;
+  line-height: 0.92;
+  color: var(--dark);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+}
+
+.word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(60px) scale(0.85);
+  animation: wordReveal 0.6s cubic-bezier(0.34,1.56,0.64,1) both;
+}
+.word.white { color: var(--white); }
+.word.highlighted {
+  background: var(--green-chip);
+  color: white;
+  padding: 0 0.2em;
+  border-radius: 8px;
+  display: inline-block;
+}
+.w1 { animation-delay: 0.3s; }
+.w2 { animation-delay: 0.5s; }
+.w3 { animation-delay: 0.7s; }
+.w4 { animation-delay: 0.9s; }
+
+@keyframes wordReveal {
+  from { opacity: 0; transform: translateY(60px) scale(0.85); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes wordPop {
+  from { opacity: 0; transform: scale(0.8); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.hero-telugu {
+  font-family: 'Tiro Telugu', serif;
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  color: rgba(255,255,255,0.65);
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: wordPop 0.6s ease 1.5s both;
+}
+
+.hero-pills-row {
+  display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap;
+  margin-bottom: 3.5rem;
+  opacity: 0; animation: wordPop 0.5s ease 1.7s both;
+}
+.chip {
+  background: rgba(255,255,255,0.25);
+  border: 2px solid rgba(255,255,255,0.4);
+  color: white;
+  font-weight: 800; font-size: 0.78rem;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 0.5rem 1.2rem; border-radius: 50px;
+  backdrop-filter: blur(6px);
+}
+.chip.green { background: var(--green-chip); border-color: var(--green-chip); }
+
+.hero-btns {
+  display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+  opacity: 0; animation: wordPop 0.5s ease 1.9s both;
+}
+.btn-dark {
+  background: var(--dark); color: white;
+  padding: 1rem 2.5rem; border-radius: 50px;
+  font-size: 0.88rem; font-weight: 900;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  text-decoration: none; transition: all 0.25s;
+  box-shadow: 0 8px 30px rgba(26,26,26,0.25);
+}
+.btn-dark:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(26,26,26,0.35); }
+.btn-white-outline {
+  background: transparent; color: white;
+  border: 2.5px solid rgba(255,255,255,0.6);
+  padding: 1rem 2.5rem; border-radius: 50px;
+  font-size: 0.88rem; font-weight: 900;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  text-decoration: none; transition: all 0.25s;
+}
+.btn-white-outline:hover { background: rgba(255,255,255,0.15); border-color: white; }
+
+.float-emoji {
+  position: absolute; z-index: 3;
+  font-size: 3.5rem;
+  filter: drop-shadow(0 8px 20px rgba(0,0,0,0.15));
+  opacity: 0;
+}
+@keyframes emojiPop {
+  from { opacity: 0; transform: scale(0.3) rotate(-20deg); }
+  to   { opacity: 1; transform: scale(1) rotate(0deg); }
+}
+@keyframes floatBob {
+  0%,100% { transform: translateY(0) rotate(-3deg); }
+  50% { transform: translateY(-12px) rotate(3deg); }
+}
+
+.hero-rating {
+  margin: 3.5rem auto 0;
+  background: white; border-radius: 50px;
+  padding: 0.6rem 1.5rem;
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.7rem;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+  opacity: 0; animation: wordPop 0.6s ease 2.2s both;
+  white-space: nowrap;
+}
+.hero-rating .stars { color: #f5c518; font-size: 1rem; }
+.hero-rating strong { font-size: 1rem; font-weight: 900; color: var(--dark); }
+.hero-rating small { font-size: 0.72rem; color: #888; }
+
+/* ═══ SCROLL SECTIONS ═══ */
+.scroll-section {
+  min-height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  padding: 6rem 5%;
+  position: relative; overflow: hidden;
+}
+.sec-about { background: linear-gradient(135deg, var(--light-green) 0%, var(--cream) 100%); }
+.sec-menu { background: var(--dark); }
+.sec-reviews { background: linear-gradient(135deg, var(--primary-green) 0%, var(--accent-green) 100%); }
+.sec-info { background: var(--cream); }
+
+.big-reveal-text {
+  font-size: clamp(3rem, 8vw, 7rem);
+  font-weight: 900; line-height: 0.95;
+  text-transform: uppercase; letter-spacing: -0.02em;
+  text-align: center; position: relative; z-index: 2;
+  max-width: 1000px;
+}
+.big-reveal-text .line { display: block; overflow: hidden; }
+.big-reveal-text .line-inner {
+  display: block;
+  transform: translateY(100%);
+  transition: transform 0.8s cubic-bezier(0.16,1,0.3,1);
+  opacity: 0;
+}
+.big-reveal-text.revealed .line-inner { transform: translateY(0); opacity: 1; }
+.big-reveal-text .line:nth-child(2) .line-inner { transition-delay: 0.1s; }
+.big-reveal-text .line:nth-child(3) .line-inner { transition-delay: 0.2s; }
+.big-reveal-text .line:nth-child(4) .line-inner { transition-delay: 0.3s; }
+
+.text-dark { color: var(--dark); }
+.text-white { color: white; }
+.text-coral { color: var(--primary-green); }
+.text-yellow { color: var(--accent-green); }
+.text-beige { color: var(--beige); }
+
+.inline-chip { background: var(--green-chip); color: white; border-radius: 10px; padding: 0 0.15em; display: inline; }
+.inline-chip-coral { background: var(--primary-green); color: white; border-radius: 10px; padding: 0 0.15em; }
+
+.sec-sub { position: relative; z-index: 2; text-align: center; margin-top: 3rem; }
+.sub-desc {
+  font-size: 1.05rem; line-height: 1.8;
+  color: rgba(26,26,26,0.65); max-width: 520px;
+  margin: 0 auto 2rem; font-weight: 700;
+}
+.sub-desc-white { color: rgba(255,255,255,0.7); }
+
+.features-row { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 1rem; position: relative; z-index: 2; }
+.feat-pill {
+  background: rgba(255,255,255,0.3);
+  border: 2px solid rgba(255,255,255,0.5);
+  color: var(--dark); font-weight: 900; font-size: 0.82rem;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 0.7rem 1.5rem; border-radius: 50px;
+  backdrop-filter: blur(8px); transition: all 0.25s;
+}
+.feat-pill:hover { background: white; transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+
+/* ═══ MENU ═══ */
+.menu-inner { position: relative; z-index: 2; text-align: center; width: 100%; max-width: 1100px; }
+.menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.2rem; margin-top: 3rem; }
+.menu-card {
+  background: rgba(255,255,255,0.05);
+  border: 1.5px solid rgba(255,255,255,0.1);
+  border-radius: 20px; padding: 2rem 1.5rem;
+  text-align: center; transition: all 0.3s;
+}
+.menu-card:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(76,175,130,0.5);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+}
+.menu-card .em { font-size: 3.5rem; display: block; margin-bottom: 1rem; }
+.menu-card .menu-item-img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin: 0 auto 1.2rem; display: block; border: 3px solid rgba(255,255,255,0.1); box-shadow: 0 10px 20px rgba(0,0,0,0.3); transition: transform 0.3s ease; }
+.menu-card:hover .menu-item-img { transform: scale(1.05) rotate(3deg); border-color: rgba(76,175,130,0.5); }
+.menu-card h3 { font-size: 1.1rem; font-weight: 900; color: var(--beige); margin-bottom: 0.5rem; }
+.menu-card p { color: rgba(255,255,255,0.5); font-size: 0.83rem; line-height: 1.6; }
+.menu-card .badge {
+  display: inline-block; margin-top: 1rem;
+  background: var(--green-chip); color: white;
+  padding: 0.3rem 1rem; border-radius: 50px;
+  font-size: 0.72rem; font-weight: 900;
+  letter-spacing: 0.1em; text-transform: uppercase;
+}
+
+/* ═══ GALLERY ═══ */
+.sec-gallery { background: var(--cream); flex-direction: column; padding-top: 7rem; padding-bottom: 7rem; }
+.gallery-inner { position: relative; z-index: 2; text-align: center; width: 100%; max-width: 1200px; }
+.gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+.gallery-item {
+  position: relative; border-radius: 20px; overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: all 0.3s;
+  aspect-ratio: 4/3;
+}
+.gallery-item:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.2); }
+.gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+.gallery-item:hover img { transform: scale(1.05); }
+.gallery-caption {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  color: white; padding: 1.5rem 1rem 1rem;
+  font-weight: 800; font-size: 1rem; text-align: left;
+  opacity: 0; transform: translateY(10px); transition: all 0.3s;
+}
+.gallery-item:hover .gallery-caption { opacity: 1; transform: translateY(0); }
+
+/* ═══ REVIEWS ═══ */
+.reviews-inner { position: relative; z-index: 2; text-align: center; width: 100%; max-width: 1000px; }
+.reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.2rem; margin-top: 3rem; }
+.review-card {
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(12px);
+  border: 2px solid rgba(255,255,255,0.3);
+  border-radius: 20px; padding: 2rem; text-align: left; transition: all 0.3s;
+}
+.review-card:hover { background: rgba(255,255,255,0.3); transform: translateY(-4px); box-shadow: 0 20px 50px rgba(0,0,0,0.15); }
+.r-stars { color: #fff; font-size: 0.9rem; margin-bottom: 1rem; }
+.r-text { font-size: 0.95rem; line-height: 1.7; color: var(--dark); font-weight: 800; font-style: italic; margin-bottom: 1.2rem; }
+.r-name { font-size: 0.75rem; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; color: var(--dark); }
+.r-date { font-size: 0.7rem; color: rgba(26,26,26,0.5); margin-top: 0.2rem; }
+
+/* ═══ INFO ═══ */
+.info-inner { position: relative; z-index: 2; width: 100%; max-width: 1000px; }
+.info-top-text { text-align: center; margin-bottom: 4rem; }
+.info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+.info-card {
+  background: white; border-radius: 24px; padding: 2.5rem 2rem;
+  box-shadow: 0 8px 40px rgba(46,125,50,0.08);
+  border: 2px solid rgba(46,125,50,0.08); transition: all 0.3s;
+}
+.info-card:hover { transform: translateY(-4px); box-shadow: 0 20px 60px rgba(46,125,50,0.15); border-color: rgba(46,125,50,0.2); }
+.info-card .icon-big { font-size: 2.5rem; display: block; margin-bottom: 1rem; }
+.info-card h3 { font-size: 1rem; font-weight: 900; color: var(--dark); margin-bottom: 1rem; letter-spacing: 0.05em; text-transform: uppercase; }
+.info-card p, .info-card a { color: #777; font-size: 0.88rem; line-height: 1.8; text-decoration: none; font-weight: 700; }
+.info-card a:hover { color: var(--primary-green); }
+.info-card .phone-big { font-size: 1.3rem; font-weight: 900; color: var(--dark); display: block; margin-bottom: 0.5rem; }
+.hours-row { display: flex; justify-content: space-between; font-size: 0.82rem; padding: 0.5rem 0; border-bottom: 1px solid rgba(0,0,0,0.06); color: #888; font-weight: 700; }
+.hours-row span:last-child { color: var(--dark); }
+.veg-badge { margin-top: 1.5rem; background: rgba(76,175,130,0.1); border: 2px solid rgba(76,175,130,0.3); border-radius: 12px; padding: 0.7rem 1rem; font-size: 0.78rem; font-weight: 900; color: var(--green-chip); letter-spacing: 0.05em; }
+
+/* ═══ CTA ═══ */
+.sec-cta { background: var(--cream); padding: 7rem 5%; text-align: center; position: relative; overflow: hidden; }
+.sec-cta::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 30% 50%, rgba(46,125,50,0.08), transparent 60%),
+              radial-gradient(ellipse at 70% 50%, rgba(76,175,130,0.05), transparent 60%);
+}
+.cta-big { font-size: clamp(2.5rem, 7vw, 6rem); font-weight: 900; text-transform: uppercase; color: var(--dark); line-height: 1.25; letter-spacing: -0.02em; position: relative; z-index: 1; margin-bottom: 2rem; }
+.cta-big span { background: var(--primary-green); color: white; padding: 0 0.25em; border-radius: 8px; display: inline-block; margin: 0.05em 0; }
+.cta-sub { color: rgba(11,51,30,0.7); font-size: 1.1rem; font-weight: 700; margin-bottom: 2.5rem; position: relative; z-index: 1; }
+.cta-actions { position: relative; z-index: 1; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.btn-coral { background: var(--primary-green); color: white; padding: 1rem 2.5rem; border-radius: 50px; font-size: 0.88rem; font-weight: 900; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; transition: all 0.25s; box-shadow: 0 8px 30px rgba(46,125,50,0.4); }
+.btn-coral:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(46,125,50,0.5); }
+.btn-outline-w { border: 2.5px solid rgba(255,255,255,0.3); color: white; background: transparent; padding: 1rem 2.5rem; border-radius: 50px; font-size: 0.88rem; font-weight: 900; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; transition: all 0.25s; }
+.btn-outline-w:hover { border-color: white; background: rgba(255,255,255,0.08); }
+
+/* ═══ FOOTER ═══ */
+footer { background: #111; color: rgba(255,255,255,0.3); text-align: center; padding: 1.8rem 5%; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.06em; }
+footer strong { color: rgba(255,255,255,0.6); }
+
+/* ═══ BG BLOB ═══ */
+.sec-blob { position: absolute; border-radius: 50%; opacity: 0.12; pointer-events: none; }
+
+/* ═══ REVEAL ═══ */
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-d1 { transition-delay: 0.1s; }
+.reveal-d2 { transition-delay: 0.2s; }
+
+/* ═══ MOBILE ═══ */
+@media (max-width: 768px) {
+  nav ul { display: none; }
+  .hero-big { font-size: clamp(2.8rem, 15vw, 5rem); }
+  .float-emoji { font-size: 2.2rem; }
+}
+
+/* ═══ SPLASH SCREEN ═══ */
+#splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #f7f5ee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    font-family: sans-serif;
+    overflow: hidden;
+    transition: opacity 0.8s ease;
+}
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    text-align: center;
+}
+.namam-svg {
+    width: 60px;
+    height: auto;
+    margin-bottom: -15px;
+    z-index: 2;
+    opacity: 0;
+    transform: scale(0.3) translateY(30px);
+}
+.cutlery-svg {
+    width: 280px;
+    height: auto;
+    z-index: 1;
+    opacity: 0;
+    transform: scale(0.6);
+}
+.cutlery-svg #spoon {
+    transform-origin: 100px 140px;
+    transform: rotate(-45deg) translate(-50px, -50px);
+    opacity: 0;
+}
+.cutlery-svg #fork {
+    transform-origin: 180px 140px;
+    transform: rotate(45deg) translate(50px, -50px);
+    opacity: 0;
+}
+.cutlery-svg #leaves-left, 
+.cutlery-svg #leaves-right {
+    opacity: 0;
+    transform: scale(0.7);
+    transform-origin: center;
+}
+.branding-text {
+    margin-top: 15px;
+    width: 100%;
+    max-width: 500px;
+    opacity: 0;
+    transform: translateY(30px);
+}
+.veg-tag-container {
+    margin-top: 25px;
+    opacity: 0;
+    transform: translateY(20px);
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.veg-tag-banner {
+    background-color: #0d3824;
+    padding: 10px 40px;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.veg-icon {
+    width: 24px;
+    height: 24px;
+    border: 2px solid #28a745;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+}
+.veg-circle {
+    width: 12px;
+    height: 12px;
+    background-color: #28a745;
+    border-radius: 50%;
+}
+.veg-text {
+    color: #d1b46a;
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+</style>
+</head>
+<body>
+
+<!-- SPLASH SCREEN -->
+<div id="splash-screen">
+    <div class="logo-container">
+        <img src="logo-transparent.png" class="real-splash-logo" alt="Ongole Vari Logo" style="width: 140px; height: auto; margin-bottom: 20px; opacity: 0;">
+
+        <svg class="branding-text" viewBox="0 0 600 160" xmlns="http://www.w3.org/2000/svg">
+            <g fill="#0b331e">
+                <text x="50%" y="35" font-family="'Arial', 'Gautami', sans-serif" font-size="28" font-weight="bold" text-anchor="middle" letter-spacing="1">ఒంగోలు వారి</text>
+                <text x="50%" y="130" font-family="'Arial', 'Gautami', sans-serif" font-size="68" font-weight="900" text-anchor="middle" letter-spacing="2">శాఖాహార భోజనం</text>
+            </g>
+        </svg>
+
+        <div class="veg-tag-container">
+            <div class="veg-tag-banner">
+                <div class="veg-icon">
+                    <div class="veg-circle"></div>
+                </div>
+                <div class="veg-text">Pure Veg</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">🌿 <span>Ongole Vari</span> Shakahari Bojanam</div>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#info">Visit</a></li>
+  </ul>
+  <div style="display:flex; align-items:center; gap: 1.2rem;">
+    <div id="google_translate_element"></div>
+    <a href="tel:07386689099" class="nav-call">📞 Call Now</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+  <div class="blob blob-4"></div>
+  <div class="pill pill-1"></div>
+  <div class="pill pill-2"></div>
+  <div class="pill pill-3"></div>
+
+  <div class="float-emoji" style="top:18%;left:4%;">🍛</div>
+  <div class="float-emoji" style="top:25%;right:4%;">🥘</div>
+  <div class="float-emoji" style="bottom:22%;left:6%;">🫙</div>
+  <div class="float-emoji" style="bottom:18%;right:6%;">🌿</div>
+  <div class="float-emoji" style="top:55%;left:2%;font-size:2rem;">🍚</div>
+  <div class="float-emoji" style="top:50%;right:3%;font-size:2rem;">🥣</div>
+
+  <div class="hero-content">
+    <div class="hero-tagline">🌱 100% Pure Vegetarian · Kukatpally, Hyderabad</div>
+    <div class="logo-3d-scene" style="width:160px; height:160px; margin: 0 auto 1.5rem; display: flex; justify-content: center; align-items: center;">
+      <div class="logo-3d-object" style="position:relative; width:100%; height:100%; transform-style:preserve-3d; transform: rotateY(-15deg) rotateX(10deg);">
+        <img src="logo-transparent.png" alt="Logo" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:contain; transform: translateZ(0px)">
+        <img src="logo-transparent.png" alt="Logo" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:contain; transform: translateZ(-1px); filter: brightness(0.9)">
+        <img src="logo-transparent.png" alt="Logo" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:contain; transform: translateZ(-2px); filter: brightness(0.8)">
+        <img src="logo-transparent.png" alt="Logo" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:contain; transform: translateZ(-3px); filter: brightness(0.7)">
+        <img src="logo-transparent.png" alt="Logo" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:contain; transform: translateZ(-4px); filter: brightness(0.6)">
+        <img src="logo-transparent.png" alt="Logo Shadow" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:contain; transform: translateZ(-25px) scale(0.9); filter: brightness(0) blur(15px); opacity: 0.5">
+      </div>
+    </div>
+    <div class="hero-big">
+      <span class="word w1 text-beige">ONGOLE</span>&nbsp;
+      <span class="word w2 white">VARI</span><br>
+      <span class="word w3 highlighted">SHAKAHARI</span><br>
+      <span class="word w4 text-beige">BOJANAM</span>
+    </div>
+    <div class="hero-telugu">ఒంగోలు వారి శాకాహారి భోజనం</div>
+    <div class="hero-pills-row">
+      <span class="chip green">✦ Pure Veg</span>
+      <span class="chip">🍽 All You Can Eat</span>
+      <span class="chip">₹1 – ₹200</span>
+      <span class="chip">Andhra Style</span>
+    </div>
+    <div class="hero-btns">
+      <a href="#menu" class="btn-dark">View Today's Meal</a>
+      <a href="#info" class="btn-white-outline">Find Us →</a>
+    </div>
+
+    <div class="hero-rating">
+      <span class="stars">★★★★★</span>
+      <strong>4.8</strong>
+      <small>91 Google Reviews</small>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="scroll-section sec-about" id="about">
+  <div class="sec-blob" style="width:400px;height:400px;background:var(--primary-green);top:-100px;right:-100px;"></div>
+  <div class="sec-blob" style="width:250px;height:250px;background:var(--light-green);bottom:-80px;left:-60px;"></div>
+  <div style="text-align:center;position:relative;z-index:2;max-width:1000px;">
+    <div class="big-reveal-text" id="about-text">
+      <span class="line"><span class="line-inner text-dark">PURE VEG.</span></span>
+      <span class="line"><span class="line-inner"><span class="inline-chip">UNLIMITED</span> <span class="text-dark">MEALS.</span></span></span>
+      <span class="line"><span class="line-inner text-dark">JUST <span class="inline-chip-coral">₹200</span>.</span></span>
+    </div>
+    <div class="sec-sub reveal">
+      <p class="sub-desc">Born in Ongole, served in Hyderabad. Every meal is freshly cooked using traditional Andhra recipes — no eggs, no meat, ever. Just wholesome vegetarian food that tastes like home.</p>
+      <div class="features-row">
+        <span class="feat-pill">🌱 100% Vegetarian</span>
+        <span class="feat-pill">♾️ Unlimited Servings</span>
+        <span class="feat-pill">🏠 Homely Taste</span>
+        <span class="feat-pill">💰 Affordable</span>
+        <span class="feat-pill">🍃 Fresh Daily</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section class="scroll-section sec-menu" id="menu" style="flex-direction:column;padding-top:7rem;padding-bottom:7rem;">
+  <div class="menu-inner">
+    <div class="big-reveal-text" id="menu-text">
+      <span class="line"><span class="line-inner text-beige">TODAY'S</span></span>
+      <span class="line"><span class="line-inner text-white"><span class="inline-chip">BOJANAM</span> THALI</span></span>
+    </div>
+    <p class="sub-desc sub-desc-white reveal" style="margin-top:1rem;">Complete Andhra vegetarian meal · Served unlimited · Fresh every day</p>
+    <div class="menu-grid reveal">
+      <div class="menu-card"><img src="steamed-rice.png" class="menu-item-img" alt="Steamed Rice"><h3>Steamed Rice</h3><p>Soft, perfectly cooked white rice — the foundation of every South Indian thali.</p><span class="badge">Unlimited</span></div>
+      <div class="menu-card"><img src="pappu.jpg" class="menu-item-img" alt="Tomato Pappu"><h3>Pappu (Dal)</h3><p>Classic Andhra lentil curry with mustard seeds, curry leaves & dried red chilli.</p><span class="badge">Unlimited</span></div>
+      <div class="menu-card"><img src="sambar.png" class="menu-item-img" alt="Sambar"><h3>Sambar</h3><p>Tangy tamarind sambar loaded with vegetables and aromatic spices, from scratch.</p><span class="badge">Unlimited</span></div>
+      <div class="menu-card"><img src="veg-curry.jpg" class="menu-item-img" alt="Vegetable Curry"><h3>Vegetable Curry</h3><p>Seasonal vegetables in traditional Andhra style — spiced just right.</p><span class="badge">Unlimited</span></div>
+      <div class="menu-card"><img src="sweet.png" class="menu-item-img" alt="Sweet Payasam"><h3>Sweet (Payasam)</h3><p>Traditional sweet vermicelli payasam, rich in ghee and roasted nuts.</p><span class="badge">Included</span></div>
+      <div class="menu-card"><img src="rasam.jpg" class="menu-item-img" alt="Tomato Rasam"><h3>Rasam & Curd</h3><p>Peppery rasam to finish and cool fresh curd to soothe and complete the meal.</p><span class="badge">Included</span></div>
+      <div class="menu-card"><img src="pickle-papad.png" class="menu-item-img" alt="Pickle and Papad"><h3>Pickle & Papad</h3><p>House Andhra avakaya pickle and crispy papad — the perfect companions.</p><span class="badge">Included</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES GRID -->
+<section class="scroll-section sec-about" id="services" style="padding-top:7rem; padding-bottom:7rem;">
+  <div class="menu-inner" style="max-width:1200px;">
+    <div class="big-reveal-text">
+      <span class="line"><span class="line-inner text-dark">OUR</span></span>
+      <span class="line"><span class="line-inner"><span class="inline-chip-coral">CATERING</span></span></span>
+      <span class="line"><span class="line-inner text-dark">SERVICES</span></span>
+    </div>
+    <p class="sub-desc reveal" style="margin-top:1rem;">We bring the authentic taste of Ongole to your special occasions.</p>
+    
+    <div class="menu-grid reveal" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin-top: 4rem;">
+      <!-- Service 1 -->
+      <div class="menu-card" style="background: white; border-color: rgba(46,125,50,0.1); color: var(--dark); text-align: left; padding: 2.5rem 2rem;">
+        <span style="font-size: 3rem; display: block; margin-bottom: 1rem;">🎊</span>
+        <h3 style="color: var(--primary-green); font-size: 1.4rem; margin-bottom: 1rem;">Event Catering</h3>
+        <p style="color: #555; margin-bottom: 1.5rem;">Complete food services for Weddings, Receptions, Birthdays, Corporate Events, and Festivals.</p>
+        <ul style="color: #333; font-weight: 700; font-size: 0.9rem; margin-bottom: 1.5rem; padding-left: 1.2rem; line-height: 1.8;">
+          <li>Customized Menus</li>
+          <li>Veg & Non-Veg Options</li>
+          <li>Events of any size</li>
+        </ul>
+        <a href="tel:07386689099" style="color: var(--primary-green); font-weight: 900; text-decoration: none; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px;">Get Quote →</a>
+      </div>
+
+      <!-- Service 2 -->
+      <div class="menu-card" style="background: white; border-color: rgba(46,125,50,0.1); color: var(--dark); text-align: left; padding: 2.5rem 2rem;">
+        <span style="font-size: 3rem; display: block; margin-bottom: 1rem;">📦</span>
+        <h3 style="color: var(--primary-green); font-size: 1.4rem; margin-bottom: 1rem;">Parcel Food Service</h3>
+        <p style="color: #555; margin-bottom: 1.5rem;">Freshly prepared meals packed hygienically and delivered directly to your location.</p>
+        <ul style="color: #333; font-weight: 700; font-size: 0.9rem; margin-bottom: 1.5rem; padding-left: 1.2rem; line-height: 1.8;">
+          <li>Family Meal Parcels</li>
+          <li>Corporate Lunch Packs</li>
+          <li>Party Food Parcels</li>
+        </ul>
+        <a href="tel:07386689099" style="color: var(--primary-green); font-weight: 900; text-decoration: none; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px;">Order Now →</a>
+      </div>
+
+      <!-- Service 3 -->
+      <div class="menu-card" style="background: white; border-color: rgba(46,125,50,0.1); color: var(--dark); text-align: left; padding: 2.5rem 2rem;">
+        <span style="font-size: 3rem; display: block; margin-bottom: 1rem;">💍</span>
+        <h3 style="color: var(--primary-green); font-size: 1.4rem; margin-bottom: 1rem;">Wedding Catering</h3>
+        <p style="color: #555; margin-bottom: 1.5rem;">Complete wedding food planning with traditional and modern menu options for your big day.</p>
+        <ul style="color: #333; font-weight: 700; font-size: 0.9rem; margin-bottom: 1.5rem; padding-left: 1.2rem; line-height: 1.8;">
+          <li>Live Food Counters</li>
+          <li>Welcome Drinks & Starters</li>
+          <li>Desserts & Sweets</li>
+        </ul>
+        <a href="tel:07386689099" style="color: var(--primary-green); font-weight: 900; text-decoration: none; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px;">Discuss Menu →</a>
+      </div>
+
+      <!-- Service 4 -->
+      <div class="menu-card" style="background: white; border-color: rgba(46,125,50,0.1); color: var(--dark); text-align: left; padding: 2.5rem 2rem;">
+        <span style="font-size: 3rem; display: block; margin-bottom: 1rem;">🏢</span>
+        <h3 style="color: var(--primary-green); font-size: 1.4rem; margin-bottom: 1rem;">Corporate Catering</h3>
+        <p style="color: #555; margin-bottom: 1.5rem;">Professional food services for offices, conferences, meetings, and corporate gatherings.</p>
+        <ul style="color: #333; font-weight: 700; font-size: 0.9rem; margin-bottom: 1.5rem; padding-left: 1.2rem; line-height: 1.8;">
+          <li>Breakfast & Lunch</li>
+          <li>Evening Snacks</li>
+          <li>Dinner Packages</li>
+        </ul>
+        <a href="tel:07386689099" style="color: var(--primary-green); font-weight: 900; text-decoration: none; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px;">Learn More →</a>
+      </div>
+      
+      <!-- Service 5 -->
+      <div class="menu-card" style="background: white; border-color: rgba(46,125,50,0.1); color: var(--dark); text-align: left; padding: 2.5rem 2rem;">
+        <span style="font-size: 3rem; display: block; margin-bottom: 1rem;">🎪</span>
+        <h3 style="color: var(--primary-green); font-size: 1.4rem; margin-bottom: 1rem;">Outdoor Events</h3>
+        <p style="color: #555; margin-bottom: 1.5rem;">We arrange catering for outdoor functions, garden parties, and large public events.</p>
+        <ul style="color: #333; font-weight: 700; font-size: 0.9rem; margin-bottom: 1.5rem; padding-left: 1.2rem; line-height: 1.8;">
+          <li>Logistics Setup</li>
+          <li>Outdoor Cooking Stations</li>
+          <li>Professional Staff</li>
+        </ul>
+        <a href="tel:07386689099" style="color: var(--primary-green); font-weight: 900; text-decoration: none; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px;">Get Quote →</a>
+      </div>
+
+      <!-- Service 6 -->
+      <div class="menu-card" style="background: white; border-color: rgba(46,125,50,0.1); color: var(--dark); text-align: left; padding: 2.5rem 2rem;">
+        <span style="font-size: 3rem; display: block; margin-bottom: 1rem;">🎉</span>
+        <h3 style="color: var(--primary-green); font-size: 1.4rem; margin-bottom: 1rem;">Special Occasions</h3>
+        <p style="color: #555; margin-bottom: 1.5rem;">Customized food services for birthdays, anniversaries, baby showers, and private celebrations.</p>
+        <ul style="color: #333; font-weight: 700; font-size: 0.9rem; margin-bottom: 1.5rem; padding-left: 1.2rem; line-height: 1.8;">
+          <li>Intimate Gatherings</li>
+          <li>Custom Themes</li>
+          <li>Tailored Menu</li>
+        </ul>
+        <a href="tel:07386689099" style="color: var(--primary-green); font-weight: 900; text-decoration: none; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px;">Plan Event →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US STATS -->
+<section class="scroll-section sec-menu" style="background: var(--dark); padding-top: 5rem; padding-bottom: 5rem;">
+  <div class="menu-inner">
+    <div class="menu-grid reveal" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;">
+      <div style="text-align: center;">
+        <div style="font-size: 3.5rem; font-weight: 900; color: var(--beige); margin-bottom: 0.5rem;">500+</div>
+        <p style="color: rgba(255,255,255,0.7); font-weight: 800; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem;">Events Served</p>
+      </div>
+      <div style="text-align: center;">
+        <div style="font-size: 3.5rem; font-weight: 900; color: var(--primary-green); margin-bottom: 0.5rem;">10k+</div>
+        <p style="color: rgba(255,255,255,0.7); font-weight: 800; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem;">Happy Guests</p>
+      </div>
+      <div style="text-align: center;">
+        <div style="font-size: 3.5rem; font-weight: 900; color: var(--beige); margin-bottom: 0.5rem;">10+</div>
+        <p style="color: rgba(255,255,255,0.7); font-weight: 800; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem;">Years Experience</p>
+      </div>
+      <div style="text-align: center;">
+        <div style="font-size: 3.5rem; font-weight: 900; color: var(--primary-green); margin-bottom: 0.5rem;">100%</div>
+        <p style="color: rgba(255,255,255,0.7); font-weight: 800; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem;">Satisfaction</p>
+      </div>
+    </div>
+    
+    <div class="features-row reveal" style="margin-top: 4rem;">
+      <span class="feat-pill" style="color: white; border-color: rgba(255,255,255,0.2);">🥬 Fresh Ingredients</span>
+      <span class="feat-pill" style="color: white; border-color: rgba(255,255,255,0.2);">✨ Hygienic Prep</span>
+      <span class="feat-pill" style="color: white; border-color: rgba(255,255,255,0.2);">👨‍🍳 Experienced Chefs</span>
+      <span class="feat-pill" style="color: white; border-color: rgba(255,255,255,0.2);">⏱ On-Time Service</span>
+      <span class="feat-pill" style="color: white; border-color: rgba(255,255,255,0.2);">💰 Affordable Pricing</span>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="scroll-section" style="background: var(--cream); flex-direction: column;">
+  <div class="info-inner">
+    <div class="info-top-text">
+      <div class="big-reveal-text">
+        <span class="line"><span class="line-inner text-dark">HOW IT <span class="text-coral">WORKS</span></span></span>
+      </div>
+      <p class="sub-desc reveal" style="margin-top:1rem;">4 simple steps to a memorable feast.</p>
+    </div>
+    
+    <div class="info-grid reveal" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+      <div class="info-card" style="text-align: center;">
+        <span class="icon-big" style="background: var(--light-green); width: 60px; height: 60px; line-height: 60px; border-radius: 50%; margin: 0 auto 1rem; color: var(--primary-green);">1</span>
+        <h3>Contact Us</h3>
+        <p>Reach out via phone or WhatsApp with your event date.</p>
+      </div>
+      <div class="info-card" style="text-align: center;">
+        <span class="icon-big" style="background: var(--light-green); width: 60px; height: 60px; line-height: 60px; border-radius: 50%; margin: 0 auto 1rem; color: var(--primary-green);">2</span>
+        <h3>Discuss</h3>
+        <p>We'll discuss your requirements, guest count, and preferences.</p>
+      </div>
+      <div class="info-card" style="text-align: center;">
+        <span class="icon-big" style="background: var(--light-green); width: 60px; height: 60px; line-height: 60px; border-radius: 50%; margin: 0 auto 1rem; color: var(--primary-green);">3</span>
+        <h3>Customize</h3>
+        <p>Choose and finalize your perfect menu within your budget.</p>
+      </div>
+      <div class="info-card" style="text-align: center;">
+        <span class="icon-big" style="background: var(--light-green); width: 60px; height: 60px; line-height: 60px; border-radius: 50%; margin: 0 auto 1rem; color: var(--primary-green);">4</span>
+        <h3>Event Day</h3>
+        <p>Relax while we serve delicious food to your guests.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- GALLERY -->
+<section class="scroll-section sec-gallery" id="gallery">
+  <div class="gallery-inner">
+    <div class="big-reveal-text" id="gallery-text">
+      <span class="line"><span class="line-inner text-dark">A FEAST FOR</span></span>
+      <span class="line"><span class="line-inner"><span class="inline-chip-coral">YOUR EYES</span></span></span>
+    </div>
+    <p class="sub-desc reveal" style="margin-top:1rem;">Take a look at our authentic Andhra preparations.</p>
+    
+    <div class="gallery-grid reveal">
+      <div class="gallery-item">
+        <img src="gallery-4.jpg" alt="Our Special Pure Veg Thali">
+        <div class="gallery-caption">Our Special Pure Veg Thali</div>
+      </div>
+      <div class="gallery-item">
+        <img src="gallery-1.jpg" alt="Happy Customers Dining">
+        <div class="gallery-caption">Happy Customers Dining</div>
+      </div>
+      <div class="gallery-item">
+        <img src="gallery-3.jpg" alt="Authentic Dining Experience">
+        <div class="gallery-caption">Authentic Dining Experience</div>
+      </div>
+      <div class="gallery-item">
+        <img src="gallery-2.jpg" alt="Traditional Decor">
+        <div class="gallery-caption">Traditional Decor</div>
+      </div>
+      <div class="gallery-item">
+        <img src="gallery-5.png" alt="Scan & Review Us">
+        <div class="gallery-caption">Scan & Review Us</div>
+      </div>
+      <div class="gallery-item">
+        <img src="gallery-6.png" alt="Beautiful Wall Art">
+        <div class="gallery-caption">Beautiful Wall Art</div>
+      </div>
+      <div class="gallery-item">
+        <img src="gallery-7.png" alt="Clean & Hygienic Kitchen">
+        <div class="gallery-caption">Clean & Hygienic Kitchen</div>
+      </div>
+      <div class="gallery-item">
+        <img src="gallery-8.jpg" alt="Homely Dining Atmosphere">
+        <div class="gallery-caption">Homely Dining Atmosphere</div>
+      </div>
+      <div class="gallery-item">
+        <img src="gallery-9.png" alt="Catering & Specials">
+        <div class="gallery-caption">Catering & Specials</div>
+      </div>
+      <div class="gallery-item">
+        <img src="gallery-10.jpg" alt="Enjoying Traditional Meals">
+        <div class="gallery-caption">Enjoying Traditional Meals</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="scroll-section sec-reviews" id="reviews" style="flex-direction:column;padding-top:7rem;padding-bottom:7rem;">
+  <div class="sec-blob" style="width:350px;height:350px;background:white;top:-80px;left:-80px;"></div>
+  <div class="reviews-inner">
+    <div class="big-reveal-text" id="reviews-text">
+      <span class="line"><span class="line-inner text-dark">LOVED BY</span></span>
+      <span class="line"><span class="line-inner"><span class="inline-chip">EVERYONE</span> <span class="text-dark">WHO</span></span></span>
+      <span class="line"><span class="line-inner text-dark">EATS HERE</span></span>
+    </div>
+    <p class="sub-desc reveal" style="margin-top:1rem;color:rgba(26,26,26,0.7);">4.8 ★ · 91 Google Reviews · Kukatpally's favourite pure veg</p>
+    <div class="reviews-grid reveal">
+      <div class="review-card"><div class="r-stars">★★★★★</div><p class="r-text">"Pleasant atmosphere, excellent service, and the food was absolutely delicious."</p><div class="r-name">Google Reviewer</div><div class="r-date">2 months ago</div></div>
+      <div class="review-card"><div class="r-stars">★★★★★</div><p class="r-text">"Very nice place for having homely food at an affordable price. Feels just like home!"</p><div class="r-name">Google Reviewer</div><div class="r-date">3 months ago</div></div>
+      <div class="review-card"><div class="r-stars">★★★★★</div><p class="r-text">"The staff check on us frequently, making sure we have everything we need."</p><div class="r-name">Praveen Kumar Kunchala</div><div class="r-date">Recently</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- INFO -->
+<section class="scroll-section sec-info" id="info" style="flex-direction:column;padding-top:7rem;padding-bottom:7rem;">
+  <div class="info-inner">
+    <div class="info-top-text">
+      <div class="big-reveal-text" id="info-text">
+        <span class="line"><span class="line-inner text-dark">COME. <span class="text-coral">EAT.</span></span></span>
+        <span class="line"><span class="line-inner text-dark">FEEL AT HOME.</span></span>
+      </div>
+    </div>
+    <div class="info-grid">
+      <div class="info-card reveal">
+        <span class="icon-big">📍</span>
+        <h3>Location</h3>
+        <p>MIG – 314, Road No. 4<br>Kukatpally Housing Board Colony<br>Dharma Reddy Colony Phase I<br>Kukatpally, Hyderabad – 500072</p>
+        <a href="https://maps.google.com" target="_blank" style="display:inline-block;margin-top:1rem;color:var(--primary-green);font-size:0.8rem;font-weight:900;letter-spacing:0.08em;text-transform:uppercase;">Get Directions →</a>
+      </div>
+      <div class="info-card reveal reveal-d1">
+        <span class="icon-big">🕐</span>
+        <h3>Opening Hours</h3>
+        <div class="hours-row"><span>Mon – Sat</span><span>12:00 PM – 4:00 PM</span></div>
+        <div class="hours-row"><span>Sunday</span><span>12:00 PM – 4:00 PM</span></div>
+        <p style="margin-top:1rem;font-size:0.75rem;color:#bbb;">⚠ Arrive before 3 PM — meals sell out fast!</p>
+      </div>
+      <div class="info-card reveal reveal-d2">
+        <span class="icon-big">📞</span>
+        <h3>Contact & Payment</h3>
+        <a href="tel:07386689099" class="phone-big">073866 89099</a>
+        <p>Payment: <strong style="color:var(--dark);">Cash Only</strong><br>Walk-in welcome<br>All-you-can-eat thali</p>
+        <div class="veg-badge">🌱 100% Vegetarian — No Eggs, No Meat, Ever</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="sec-cta">
+  <div class="cta-big reveal">
+    PURE VEG.<br>
+    <span>UNLIMITED</span><br>
+    MEALS.<br>
+    JUST <span>₹200</span>.
+  </div>
+  <p class="cta-sub reveal">Andhra homestyle meals served fresh daily in Kukatpally, Hyderabad.</p>
+  <div class="cta-actions reveal">
+    <a href="tel:07386689099" class="btn-coral">📞 Call 073866 89099</a>
+    <a href="#menu" class="btn-dark">View Menu</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  © 2025 <strong>Ongole Vari Shakahari Bojanam (Pure Veg)</strong> · MIG-314, Kukatpally, Hyderabad · Made with 🌿 Love
+</footer>
+
+<script>
+// Splash Screen Animation
+function runLogoAnimation() {
+    const splashScreen = document.getElementById('splash-screen');
+    if (!splashScreen) return;
+    
+    // Target Elements
+    const realLogo = document.querySelector('.real-splash-logo');
+    const mainText = document.querySelector('.branding-text');
+    const vegTag = document.querySelector('.veg-tag-container');
+
+    // Time config setup
+    const easingElastic = 'cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+    const easingDecel = 'cubic-bezier(0.25, 1, 0.5, 1)';
+
+    // 1. Realistic Logo Drops down and scales up
+    if (realLogo) {
+        realLogo.animate([
+            { opacity: 0, transform: 'scale(0.3) translateY(-80px)' },
+            { opacity: 1, transform: 'scale(1) translateY(0)' }
+        ], { duration: 1000, fill: 'forwards', easing: easingElastic });
+    }
+
+    // 3. Telugu Brand Names Fade and Rise Upwards
+    if (mainText) {
+        mainText.animate([
+            { opacity: 0, transform: 'translateY(40px)' },
+            { opacity: 1, transform: 'translateY(0)' }
+        ], { duration: 800, delay: 600, fill: 'forwards', easing: easingDecel });
+    }
+
+    // 4. Pure Veg Banner reveals itself last
+    if (vegTag) {
+        vegTag.animate([
+            { opacity: 0, transform: 'scaleY(0)' },
+            { opacity: 1, transform: 'scaleY(1)' }
+        ], { duration: 500, delay: 1000, fill: 'forwards', easing: easingDecel });
+    }
+    
+    // Hide splash screen after animation completes
+    setTimeout(() => {
+        splashScreen.style.opacity = '0';
+        setTimeout(() => {
+            splashScreen.style.display = 'none';
+        }, 800); // Wait for transition to finish
+    }, 2200);
+}
+
+// Initialize on window loading
+window.addEventListener('DOMContentLoaded', runLogoAnimation);
+
+// Scroll reveal for big text
+const bigTexts = document.querySelectorAll('.big-reveal-text');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('revealed');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.25 });
+bigTexts.forEach(el => observer.observe(el));
+
+// Scroll reveal for cards/elements
+const reveals = document.querySelectorAll('.reveal');
+const revealObs = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), 100);
+      revealObs.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+reveals.forEach(el => revealObs.observe(el));
+
+// Floating food emojis animation
+document.querySelectorAll('.float-emoji').forEach((el, i) => {
+  el.style.animation = `emojiPop 0.7s cubic-bezier(0.34,1.56,0.64,1) ${1.2 + i * 0.2}s both, floatBob ${3.5 + i * 0.5}s ease-in-out ${1.9 + i * 0.2}s infinite`;
+});
+
+// Nav shadow on scroll
+window.addEventListener('scroll', () => {
+  document.querySelector('nav').style.boxShadow = window.scrollY > 60
+    ? '0 4px 30px rgba(46,125,50,0.1)' : 'none';
+});
+</script>
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'en,hi,te', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>
